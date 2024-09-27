@@ -8,18 +8,19 @@ def hello_world():
 # Sample data store
 data_store = {}
 
-@app.route('/api/user', methods=['POST'])
-def post_user():
-    data = request.get_json()
-    name = data.get('name')
-    age = data.get('age')
-    address = data.get('address')
-
-    if name and age and address:
-        # Save user data to in-memory storage or database
-        data_store[name] = {'age': age, 'address': address}
-        return jsonify({'message': 'User saved successfully!'}), 201
-    return jsonify({'error': 'Missing name, age, or address'}), 400
+# Use the POST and GET method for creative form.
+@app.route('/api/user', methods=['POST', 'GET'])
+def form_example():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        age = request.form['age']
+        address = request.form['address']
+        return '<h1> The language is {}. The framework is {}.</h1>'.format(name, age, address)
+    return '''<form method="POST" action="">
+    Language <input types="text" name="language">
+    Framework <input type="text" name="framework">
+    <input type="submit">
+    </form>'''
 
 if __name__ == '__main__':
     app.run(debug=True)

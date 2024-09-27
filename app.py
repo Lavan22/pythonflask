@@ -137,3 +137,6 @@ def delete():
             con.close()
             # Send the transaction message to result.html
             return render_template('result.html',msg=msg)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)

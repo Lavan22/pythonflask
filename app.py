@@ -4,7 +4,6 @@
 # execute (C)reate, (R)ead, (U)pdate, (D)elete operations
 
 from flask import Flask
-from flask_bootstrap import Bootstrap
 from flask import render_template
 from flask import request
 import sqlite3

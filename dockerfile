@@ -5,11 +5,11 @@ FROM python:3.12.6
 WORKDIR /app
 
 # Copy and install dependencies
-COPY requirements.txt .
+COPY . /app 
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code
-COPY . .
+
 
 # Expose the port Flask runs on
 EXPOSE 5000

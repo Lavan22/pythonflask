@@ -10,7 +10,7 @@ def hello_world():
     return 'Hello, World!'
 
 # Use the POST method to receive user data
-@app.route('/api/user', methods=['POST'])
+@app.route('/api/user', methods=['GET','POST'])
 def form_example():
     # Get JSON data from the request
     data = request.get_json()

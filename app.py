@@ -8,9 +8,13 @@ data_store = {}
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
+@app.route('/api', methods=['GET'])
+def get_user():
+    # Handle GET requests
+    return jsonify({"message": "This is a GET request"})
 
 # Use the POST method to receive user data
-@app.route('/api/user', methods=['GET','POST'])
+@app.route('/api/user', methods=['GET'])
 def form_example():
     # Get JSON data from the request
     data = request.get_json()
